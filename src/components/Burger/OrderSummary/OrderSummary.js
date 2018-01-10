@@ -1,7 +1,11 @@
 import React from 'react';
 import Auxx from '../../../hoc/Auxx';
+import Button from '../../UI/Button/Button';
 
 const orderSummary = (props) => {
+  const clicky=()=>{
+    alert();
+  }
   const ingredientSummary = Object.keys(props.ingredients)
     .map(i=>{
       return(
@@ -18,7 +22,14 @@ const orderSummary = (props) => {
       <ul>
         {ingredientSummary}
       </ul>
+      <p><strong>{props.price}</strong></p>
       <p>Continue to checkout</p>
+      <Button
+        btnType="Danger"
+        clicked={props.cancelled}>CANCEL</Button>
+      <Button
+        btnType='Success'
+        clicked={props.continued}>CONTINUE</Button>
     </Auxx>
   );
 }
